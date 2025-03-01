@@ -1,14 +1,14 @@
 @php
     $menus = [
         (object) [
-            "titel" => "Dashboard",
+            "title" => "Dashboard",
             "path" => "/",
-            "icon" => "fas fa-th"
+            "icon" => "fas fa-th",
         ],
         (object) [
-            "titel" => "Produk",
-            "path" => "/products",
-            "icon" => "fas fa-tachometer-alt"
+            "title" => "Produk",
+            "path" => "products",
+            "icon" => "fas fa-tachometer-alt",
         ],
 
     ];
@@ -49,14 +49,17 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            @foreach ($menus as $menu)
-                <li class="nav-item">
-                        <a href="/" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>Dashboard</p>
+                @foreach ($menus as $menu)
+                    <li class="nav-item">
+                        <a href="{{ $menu->path[0] !== '/' ? '/' . $menu->path : $menu->path }}"
+                            class="nav-link {{ request()->path() === $menu->path ? 'active' : '' }}">
+                            <i class="nav-icon {{ $menu->icon }}"></i>
+                            <p>
+                                {{ $menu->title }}
+                            </p>
                         </a>
-                </li>
-            @endforeachreach
+                    </li>
+                @endforeach
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
