@@ -35,14 +35,40 @@ class ProductController extends Controller
             "sku" => "required",
         ]);
 
-        Products::create([
-            "name" => $request->input('name'),
-            "price" => $request->input('price'),
-            "stok" => $request->input('stok'),
-            "description" => $request->input('description'),
-            "sku" => $request->input('sku'),
-            "category_id" => $request->input('category_id'),
+
+        Products::create($validated);
+        return redirect('/products');
+    }
+    public function edit($id)
+    {
+        $categories = Category::all();
+        $product = Products::findOrFail($id);
+        return view('pages.products.edit', [
+            "categories" => $categories,
+            "product" => $product,
         ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validated = $request->validate([
+            "name" => "required|min:3",
+            "description" => "nullable",
+            "price" => "required",
+            "stok" => "required",
+            "category_id" => "required",
+            "sku" => "required",
+        ]);
+
+
+        Products::where('id', $id)->update($validated);
+        return redirect('/products');
+    }
+
+    public function delete($id)
+    {
+        $product = Products::where('id', $id);
+        $product->delete();
         return redirect('/products');
     }
 }

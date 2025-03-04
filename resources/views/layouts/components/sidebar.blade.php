@@ -30,7 +30,7 @@
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Orangtua Mihow</a>
+                <a href="#" class="d-block"> Mihow</a>
             </div>
         </div>
 

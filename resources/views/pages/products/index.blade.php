@@ -19,7 +19,7 @@
         <div class="col">
             <div class="card">
                 <div class="card-header d-flex justify-content-end">
-                    <a href="/products/create" class="btn btn-sm btn-primary">Tambah Barang</a>
+                    <a href="/products/create" class="btn btn-sm btn-primary">Tambah Produk</a>
                 </div>
                 <div class="card-body">
                     <table class="table table-bordered">
@@ -32,6 +32,7 @@
                                 <th>Harga</th>
                                 <th>Stok</th>
                                 <th>Kategori</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -39,11 +40,22 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $product->name }}</td>
-                                    <td>{{ $product->description }}</td>
+                                    <td>{{ $product->description ?? '-' }}</td>
                                     <td>{{ $product->sku }}</td>
                                     <td>{{ $product->price }}</td>
                                     <td>{{ $product->stok }}</td>
                                     <td>{{ $product->category->name}}</td>
+                                    <td>
+                                        <div class="d-flex">
+                                            <a href="/products/edit/{{$product->id}}"
+                                                class="btn btn-sm btn-warning mr-1">Ubah</a>
+                                            <form action="/products/{{$product->id}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                                            </form>
+                                        </div>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
