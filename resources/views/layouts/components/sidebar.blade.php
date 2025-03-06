@@ -6,6 +6,11 @@
             "icon" => "fas fa-th",
         ],
         (object) [
+            "title" => "Kategori",
+            "path" => "categories",
+            "icon" => "fas fa-tachometer-alt",
+        ],
+        (object) [
             "title" => "Produk",
             "path" => "products",
             "icon" => "fas fa-tachometer-alt",
