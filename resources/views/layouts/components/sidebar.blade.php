@@ -11,7 +11,7 @@
             "icon" => "fas fa-tachometer-alt",
         ],
         (object) [
-            "title" => "Produk",
+            "title" => "Barang",
             "path" => "products",
             "icon" => "fas fa-tachometer-alt",
         ],

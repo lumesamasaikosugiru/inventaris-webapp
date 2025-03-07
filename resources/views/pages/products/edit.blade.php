@@ -3,12 +3,12 @@
 @section('header')
     <div class="row mb-2">
         <div class="col-sm-6">
-            <h1>Ubah Produk</h1>
+            <h1>Ubah Barang</h1>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Beranda</a></li>
-                <li class="breadcrumb-item active">Produk</li>
+                <li class="breadcrumb-item active">Barang</li>
             </ol>
         </div>
     </div>
@@ -23,7 +23,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="name" class="form-label">Nama Produk</label>
+                            <label for="name" class="form-label">Nama Barang</label>
                             <input type="text" name="name" id="name"
                                 class="form-control @error('name') is-invalid @enderror"
                                 value="{{old('name', $product->name)}}">
@@ -41,7 +41,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="sku" class="form-label">Kode Produk</label>
+                            <label for="sku" class="form-label">Kode Barang</label>
                             <input type="text" name="sku" id="sku" class="form-control @error('sku') is-invalid @enderror"
                                 value="{{old('sku', $product->sku)}}">
                             @error('sku')

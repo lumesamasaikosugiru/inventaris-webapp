@@ -26,7 +26,7 @@
                         <thead>
                             <tr>
                                 <th>NO</th>
-                                <th>Nama Produk</th>
+                                <th>Nama Kategori</th>
                                 <th>Slug</th>
                                 <th>Aksi</th>
                             </tr>

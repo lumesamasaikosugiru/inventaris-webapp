@@ -3,12 +3,12 @@
 @section('header')
     <div class="row mb-2">
         <div class="col-sm-6">
-            <h1>Produk</h1>
+            <h1>Barang</h1>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Beranda</a></li>
-                <li class="breadcrumb-item active">Produk</li>
+                <li class="breadcrumb-item active">Barang</li>
             </ol>
         </div>
     </div>
@@ -19,14 +19,14 @@
         <div class="col">
             <div class="card">
                 <div class="card-header d-flex justify-content-end">
-                    <a href="/products/create" class="btn btn-sm btn-primary">Tambah Produk</a>
+                    <a href="/products/create" class="btn btn-sm btn-primary">Tambah Barang</a>
                 </div>
                 <div class="card-body">
                     <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>NO</th>
-                                <th>Nama Produk</th>
+                                <th>Nama Barang</th>
                                 <th>Deskripsi</th>
                                 <th>kode</th>
                                 <th>Harga</th>
