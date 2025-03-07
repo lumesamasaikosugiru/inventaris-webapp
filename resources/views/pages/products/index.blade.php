@@ -38,7 +38,7 @@
                         <tbody>
                             @foreach ($products as $product)
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{($products->currentpage() - 1) * $products->perpage() + $loop->index + 1 }}</td>
                                     <td>{{ $product->name }}</td>
                                     <td>{{ $product->description ?? '-' }}</td>
                                     <td>{{ $product->sku }}</td>
@@ -60,6 +60,9 @@
                             @endforeach
                         </tbody>
                     </table>
+                </div>
+                <div class="card-footer">
+                    {{ $products->links('pagination::bootstrap-5') }}
                 </div>
             </div>
         </div>
