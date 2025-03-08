@@ -15,6 +15,15 @@
 @endsection
 
 @section('content')
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                title: "Berhasil",
+                text: "{{session('success')}}",
+                icon: "success"
+            });
+        </script>
+    @endif
     <div class="row">
         <div class="col">
             <div class="card">
@@ -41,19 +50,22 @@
                                         <div class="d-flex">
                                             <a href="/categories/edit/{{$category->id}}"
                                                 class="btn btn-sm btn-warning mr-1">Ubah</a>
-                                            <form action="/categories/{{$category->id}}" method="POST">
+                                            {{-- <form action="/categories/{{$category->id}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
-                                            </form>
+                                            </form> --}}
+                                            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal"
+                                                data-target="#modal-delete-{{$category->id}}">Hapus</button>
                                         </div>
                                     </td>
                                 </tr>
+                                @include('pages.categories.delete-confir')
                             @endforeach
                         </tbody>
                     </table>
                 </div>
-                <div class="card-footer">
+                <div class=" card-footer">
                     {{ $categories->links('pagination::bootstrap-5') }}
                 </div>
             </div>

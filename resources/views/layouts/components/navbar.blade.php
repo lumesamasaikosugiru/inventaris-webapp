@@ -6,23 +6,25 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="../index3.html" class="nav-link">Home</a>
+            <a href="/" class="nav-link">Beranda</a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
+        {{-- <li class="nav-item d-none d-sm-inline-block">
             <a href="#" class="nav-link">Contact</a>
-        </li>
+        </li> --}}
     </ul>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-        <form action="/logout" method="POST">
+        {{-- <form action="/logout" method="POST"> --}}
             @csrf
             @method('post')
 
-            <button type="submit" class="btn btn-outline-danger btn-sm ">
-                Logout
-            </button>
-        </form>
+            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal"
+                data-target="#modal-logout">Keluar</button>
+            {{--
+        </form> --}}
     </ul>
 </nav>
+
+@include('pages.auth.out-confir')
 <!-- /.navbar -->

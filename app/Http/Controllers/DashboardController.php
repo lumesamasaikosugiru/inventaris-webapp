@@ -11,6 +11,10 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        if (!Auth::check()) {
+            return redirect('/login')->with('error-unauthorized', 'Login terlebih dahulu!');
+        }
+
         $productCount = Products::count();
         $categoryCount = Category::count();
 
