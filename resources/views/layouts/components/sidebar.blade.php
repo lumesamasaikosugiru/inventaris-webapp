@@ -23,7 +23,7 @@
     <a href="#" class="brand-link">
         <img src="{{ asset('templates/dist/img/logome.jpeg') }}" alt="AdminLTE Logo"
             class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">R2 LV.6 - kel.2</span>
+        <span class="brand-text font-weight-light"><b>Lumetrixkodo</b></span>
     </a>
 
     <!-- Sidebar -->
@@ -35,7 +35,7 @@
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block"> Mihow</a>
+                <a href="#" class="d-block">{{auth()->user()->name}}</a>
             </div>
         </div>
 

@@ -15,6 +15,15 @@
 @endsection
 
 @section('content')
+    @if ($errors->any())
+        <script>
+            Swal.fire({
+                title: "Gagal",
+                text: "@foreach($errors->all() as $error) {{$error}} @endforeach",
+                icon: "error"
+            });
+        </script>
+    @endif 
     <div class="row">
         <div class="col">
             <form action="/products/store" method="POST">

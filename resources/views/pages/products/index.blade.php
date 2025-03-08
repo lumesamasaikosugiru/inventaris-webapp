@@ -15,6 +15,15 @@
 @endsection
 
 @section('content')
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                title: "Berhasil",
+                text: "{{session('success')}}",
+                icon: "success"
+            });
+        </script>
+    @endif
     <div class="row">
         <div class="col">
             <div class="card">
@@ -49,14 +58,17 @@
                                         <div class="d-flex">
                                             <a href="/products/edit/{{$product->id}}"
                                                 class="btn btn-sm btn-warning mr-1">Ubah</a>
-                                            <form action="/products/{{$product->id}}" method="POST">
+                                            {{-- <form action="/products/{{$product->id}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
-                                            </form>
+                                            </form> --}}
+                                            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal"
+                                                data-target="#modal-delete-{{$product->id}}">Hapus</button>
                                         </div>
                                     </td>
                                 </tr>
+                                @include('pages.products.delete-confir')
                             @endforeach
                         </tbody>
                     </table>

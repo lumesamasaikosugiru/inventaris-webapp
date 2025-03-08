@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="{{asset('templates/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('templates/dist/css/adminlte.min.css')}}">
+    <!-- Sweet Alert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body class="hold-transition login-page">
@@ -23,9 +25,18 @@
             <a href="/"><b>Inventori </b>V1</a>
         </div>
         <!-- /.login-logo -->
+        @if (session('error-unauthorized'))
+            <script>
+                Swal.fire({
+                    title: "Error",
+                    text: "{{session('error-unauthorized')}}",
+                    icon: "error"
+                });
+            </script>
+        @endif
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Silakan login terlebih dahulu!</p>
+                <p class="login-box-msg">LOGIN</p>
 
                 <form action="/login" method="post">
                     @csrf
